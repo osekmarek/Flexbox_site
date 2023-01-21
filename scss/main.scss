@@ -1,0 +1,58 @@
+@use './colors' as *;
+@use './components' as *;
+@use './mixins' as *;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	position: relative;
+	font-family: 'Open Sans', sans-serif; // 'Dancing Script', cursive;
+	font-size: 1.6rem;
+	background-color: aqua;
+}
+
+// NAV
+.burger-btn {
+	position: fixed; //sprawdzić absolute
+	top: 20px;
+	right: 20px;
+	padding: 1em; //pading wyniesie 13,333px ponieważ font-size w buttonie wynosi 13,333px
+	background: none;
+	border: 1px solid transparent;
+	cursor: pointer;
+	z-index: 1; //ma na celu utrzymanie burger menu na wierzchu
+	&:focus {
+		outline: none;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		border-radius: 8px;
+	}
+	&:hover &__bars::before,
+	&:hover &__bars::after {
+		width: 100%;
+	}
+
+	&__box {
+		position: relative;
+		width: 40px;
+		height: 30px;
+	}
+	&__bars {
+		@include burgerBtn($width: 100%, $top: 0%);
+		&::before {
+			@include burgerBtn($width: 60%, $top: 450%, $delay: 0s);
+		}
+		&::after {
+			@include burgerBtn($width: 30%, $top: 900%, $delay: 0.1s);
+		}
+	}
+}
