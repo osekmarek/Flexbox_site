@@ -9,3 +9,9 @@
 	width: $width;
 	top: $top;
 }
+@mixin heroImages($bgImg: url('path to photo')) {
+	background-image: $blue-gradient, $bgImg; //Połączenie gradiendu ze zdjęciem
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}

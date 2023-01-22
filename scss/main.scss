@@ -18,7 +18,6 @@ body {
 	position: relative;
 	font-family: 'Open Sans', sans-serif; // 'Dancing Script', cursive;
 	font-size: 1.6rem;
-	background-color: aqua;
 }
 
 // NAV
@@ -53,6 +52,79 @@ body {
 		}
 		&::after {
 			@include burgerBtn($width: 30%, $top: 900%, $delay: 0.1s);
+		}
+	}
+}
+
+//Header
+.header {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 75vh;
+	padding: 2em;
+	text-align: center;
+	color: $pure-white;
+	@include heroImages($bgImg: url('../img/TropicalSmal.jpg'));
+	background-attachment: scroll;
+	&__heading {
+		font-family: 'Dancing Script', cursive;
+		font-size: 4.8rem;
+		font-weight: 300;
+	}
+	&__text {
+		font-size: 1.4rem;
+	}
+	&__btn {
+		margin-top: 2em;
+		padding: 0.8em 1.6em;
+		font-size: 1.4rem;
+		background: $pure-white;
+		border: none;
+		border-radius: 8px;
+		color: $dark;
+		text-transform: uppercase;
+		cursor: pointer;
+		&::before {
+			background-color: $light-white;
+		}
+	}
+}
+
+// ===========================================
+// MEDIA
+// ===========================================
+@media (min-width: 768px) {
+	.white-block {
+		height: 50px;
+		width: 45%;
+	}
+	.header {
+		&__heading {
+			font-size: 6.6rem;
+		}
+		&__text {
+			font-size: 2.2rem;
+		}
+		&__btn {
+			font-size: 1.6rem;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.burger-btn {
+		top: 50px;
+		right: 50px;
+	}
+
+	.header {
+		background-image: $blue-gradient, url('../img/TropicalBig.jpg');
+		background-position-y: -100px;
+		&__heading {
+			font-size: 10rem;
 		}
 	}
 }
