@@ -1,0 +1,49 @@
+const nav = document.querySelector('.nav')
+const navBtn = document.querySelector('.burger-btn')
+const navItem = document.querySelectorAll('.nav-item')
+
+const goNavi = function () {
+	nav.classList.toggle('nav--active')
+	let delay = 0
+	navItem.forEach(i => {
+		i.classList.toggle('nav-items-animation');
+		i.style.animationDelay = delay + 's'
+		delay = delay + 0.1;
+		i.addEventListener('click', function () {
+			nav.classList.remove('nav--active');
+			navItem.forEach(j => {
+				j.classList.remove('nav-items-animation')
+			})
+		})
+	})
+}
+navBtn.addEventListener('click', goNavi)
+
+// const nav = document.querySelector('.nav')
+// const navBtn = document.querySelector('.burger-btn')
+// const navItem = document.querySelectorAll('.nav-item')
+
+// const goNavi = () => {
+// 	nav.classList.toggle('nav--active')
+// 	let delay = 0
+// 	navItem.forEach(i => {
+// 		i.classList.toggle('nav-items-animation')
+// 		i.style.animationDelay = delay + 's'
+// 		delay = delay + 0.1
+// 		i.addEventListener('click', () => nav.classList.remove('nav--active'))
+// 	})
+// }
+// navBtn.addEventListener('click', goNavi)
+
+// document.addEventListener('DOMContentLoaded', function () {
+// 	const navigation = document.querySelector('.burger-btn__bars')
+// 	const colorBar = 'black'
+// 	function changeColor() {
+// 		if (window.scrollY >= 650) {
+// 			navigation.style.backgroundColor = colorBar
+// 		} else {
+// 			navigation.style.backgroundColor = ''
+// 		}
+// 	}
+// 	window.addEventListener('scroll', changeColor)
+// })

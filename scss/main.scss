@@ -29,7 +29,7 @@ body {
 	background: none;
 	border: 1px solid transparent;
 	cursor: pointer;
-	z-index: 1; //ma na celu utrzymanie burger menu na wierzchu
+	z-index: 2; //ma na celu utrzymanie burger menu na wierzchu
 	&:focus {
 		outline: none;
 		border: 1px solid rgba(255, 255, 255, 0.5);
@@ -54,6 +54,58 @@ body {
 			@include burgerBtn($width: 30%, $top: 900%, $delay: 0.1s);
 		}
 	}
+}
+.nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-image: $blue-gradient-solid;
+	z-index: 1;
+	transform: translateX(100%);
+	transition: transform 1s;
+	&-items {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		height: 100vh;
+		padding: 250px 0;
+	}
+	&--active {
+		transform: translateX(0);
+	}
+	&-item {
+		position: relative;
+		color: $pure-white;
+		font-size: 2.8rem;
+		text-decoration: none;
+	}
+	&-item::before {
+		position: absolute;
+		content: '';
+		width: 3px;
+		height: 100%;
+		left: -20%;
+		transform: scaleY(0);
+		background-color: $pure-white;
+		transition: transform 0.3s;
+	}
+	&-item:hover::before {
+		transform: scaleY(1);
+	}
+	
+}
+@keyframes navItemsAnimation {
+	from {
+		transform: translateX(200%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+.nav-items-animation{
+	animation: navItemsAnimation 1s 1s both;
+		
 }
 
 //Header
